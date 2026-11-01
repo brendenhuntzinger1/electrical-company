@@ -62,7 +62,7 @@ LOGO = """<a class="logo" href="index.html" aria-label="Volt Boys Electric home"
     </a>"""
 
 HEADER = """<a class="skip" href="#main">Skip to content</a>
-<div class="announce"><div class="wrap"><span><b>Licensed &amp; insured</b> · Free estimates</span><span>Same-day service calls</span><span>24/7 emergencies</span></div></div>
+<div class="announce"><div class="wrap"><span><b>Led by master electricians</b> · Free estimates</span><span>Same-day service calls</span><span>24/7 emergencies</span></div></div>
 <header class="top">
   <div class="wrap">
     """ + LOGO + """
@@ -85,7 +85,7 @@ FOOTER = """</main>
   <div class="wrap">
     <div class="foot-brand">
       """ + LOGO + """
-      <p>Licensed Florida electricians for homes, builders and businesses across Tampa Bay.</p>
+      <p>Master electrician-led. Licensed Florida electrical contractor for homes, builders and businesses across Tampa Bay.</p>
       <p class="foot-phone">{PHONE}</p>
     </div>
     <div class="foot-col">
