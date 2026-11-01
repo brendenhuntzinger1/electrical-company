@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact | Seawall Electric</title>
+<meta name="description" content="Call, text or send a photo for a flat quote within 24 hours. Serving Hillsborough, Pinellas and Pasco counties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Seawall Electric home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6.2L13.5 2Z" fill="#f5b800"/></svg></span>
+      <span class="logo-word">Seawall Electric<small>LIC. EC0000000</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="generators.html">Generators</a>
+      <a href="panel-replacement.html">Panel replacement</a>
+      <a href="ev-chargers.html">EV chargers</a>
+      <a href="index.html#plan">Storm-Ready Plan</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a class="btn btn-volt" href="tel:+18135550142" aria-label="Call (813) 555-0142">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+      <span class="top-phone-label">(813) 555-0142</span>
+    </a>
+  </div>
+</header>
+<main>
+  <section class="contact page-hero">
+    <div class="wrap">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
+        <h1>Get a quote in 24 hours.</h1>
+        <p class="lede" style="margin-top:14px">Call, text a photo, or fill out the form. You'll get a flat, written price.</p>
+        <div class="direct">
+          <span class="tag">Call or text</span>
+          <span class="num">(813) 555-0142</span>
+          <span style="color:var(--muted)">Mon–Sat, 7am–7pm · Emergencies 24/7</span>
+        </div>
+        <p class="tag" style="margin-top:32px">Service area</p>
+        <p style="margin-top:8px">Hillsborough, Pinellas and Pasco counties.</p>
+        <div class="cities">
+          <span>Tampa</span><span>St. Petersburg</span><span>Clearwater</span><span>Brandon</span><span>Riverview</span><span>Wesley Chapel</span><span>Lutz</span><span>Largo</span><span>Valrico</span><span>Land O' Lakes</span>
+        </div>
+      </div>
+
+      <form class="quote" id="quoteForm" novalidate>
+        <h3>Tell us what you need</h3>
+        <div class="row2">
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="q-service">What do you need?</label>
+          <select id="q-service" name="service">
+            <option>Standby generator</option>
+            <option>Panel replacement or upgrade</option>
+            <option>EV charger</option>
+            <option>Inspection report repairs</option>
+            <option>Storm-Ready Plan</option>
+            <option>Repair or something else</option>
+          </select>
+        </div>
+        <label class="drop" for="q-photo">
+          <input id="q-photo" name="photo" type="file" accept="image/*,application/pdf" multiple>
+          <b id="photoLabel">Add a photo or inspection report</b>
+          <span>Optional, but it gets you a faster, more accurate quote</span>
+        </label>
+        <div class="field"><label for="q-notes">Anything else? (optional)</label><textarea id="q-notes" name="notes" placeholder="Address, closing date, best time to call"></textarea></div>
+        <button class="btn btn-volt" type="submit">Send my request</button>
+        <div class="sent" id="sentMsg" hidden>Demo only: this form isn't connected yet. On the live site this goes straight to your phone and email.</div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Seawall Electric LLC · Florida Certified Electrical Contractor Lic. #EC0000000 · Licensed &amp; insured</span>
+    <span>Concept · phone, license and prices are placeholders</span>
+  </div>
+</footer>
+<div class="actionbar">
+  <a class="btn btn-volt" href="tel:+18135550142">Call</a>
+  <a class="btn btn-ink" href="sms:+18135550142">Text</a>
+  <a class="btn btn-line" href="contact.html">Quote</a>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

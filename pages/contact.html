@@ -1,0 +1,45 @@
+  <section class="contact page-hero">
+    <div class="wrap">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
+        <h1>Get a quote in 24 hours.</h1>
+        <p class="lede" style="margin-top:14px">Call, text a photo, or fill out the form. You'll get a flat, written price.</p>
+        <div class="direct">
+          <span class="tag">Call or text</span>
+          <span class="num">{PHONE}</span>
+          <span style="color:var(--muted)">Mon–Sat, 7am–7pm · Emergencies 24/7</span>
+        </div>
+        <p class="tag" style="margin-top:32px">Service area</p>
+        <p style="margin-top:8px">Hillsborough, Pinellas and Pasco counties.</p>
+        <div class="cities">
+          <span>Tampa</span><span>St. Petersburg</span><span>Clearwater</span><span>Brandon</span><span>Riverview</span><span>Wesley Chapel</span><span>Lutz</span><span>Largo</span><span>Valrico</span><span>Land O' Lakes</span>
+        </div>
+      </div>
+
+      <form class="quote" id="quoteForm" novalidate>
+        <h3>Tell us what you need</h3>
+        <div class="row2">
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="q-service">What do you need?</label>
+          <select id="q-service" name="service">
+            <option>Standby generator</option>
+            <option>Panel replacement or upgrade</option>
+            <option>EV charger</option>
+            <option>Inspection report repairs</option>
+            <option>Storm-Ready Plan</option>
+            <option>Repair or something else</option>
+          </select>
+        </div>
+        <label class="drop" for="q-photo">
+          <input id="q-photo" name="photo" type="file" accept="image/*,application/pdf" multiple>
+          <b id="photoLabel">Add a photo or inspection report</b>
+          <span>Optional, but it gets you a faster, more accurate quote</span>
+        </label>
+        <div class="field"><label for="q-notes">Anything else? (optional)</label><textarea id="q-notes" name="notes" placeholder="Address, closing date, best time to call"></textarea></div>
+        <button class="btn btn-volt" type="submit">Send my request</button>
+        <div class="sent" id="sentMsg" hidden>Demo only: this form isn't connected yet. On the live site this goes straight to your phone and email.</div>
+      </form>
+    </div>
+  </section>
