@@ -1,0 +1,545 @@
+<title>Gulfline Electric</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: signage-bold hero beside a live breaker panel; the panel's circuit directory becomes the services list; one high-vis yellow used like caution tape. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #0f1d2e;
+  --muted: #55657a;
+  --line: #dce2ea;
+  --navy: #12263f;
+  --on-navy: #f3f6fa;
+  --volt: #f5b800;
+  --on-volt: #14130c;
+  --metal: #c9d0d9;
+  --metal-dark: #9aa5b3;
+  --breaker: #1b2433;
+  --ok: #1f9d55;
+  --off: #c2410c;
+  --display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1420; --surface: #121e2d; --ink: #eef2f7; --muted: #9fb0c4; --line: #23344a;
+    --navy: #0f2238; --on-navy: #eef2f7; --volt: #ffc61a; --on-volt: #14130c;
+    --metal: #3a4757; --metal-dark: #2a3542; --breaker: #0a1019; --ok: #34d17a; --off: #fb7a3c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1420; --surface: #121e2d; --ink: #eef2f7; --muted: #9fb0c4; --line: #23344a;
+  --navy: #0f2238; --on-navy: #eef2f7; --volt: #ffc61a; --on-volt: #14130c;
+  --metal: #3a4757; --metal-dark: #2a3542; --breaker: #0a1019; --ok: #34d17a; --off: #fb7a3c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; padding-bottom: 76px; }
+@media (min-width: 900px) { body { padding-bottom: 0; } }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--volt); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.02; text-wrap: balance; margin: 0; letter-spacing: .005em; }
+h2 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 700; }
+h3 { font-size: 1.6rem; font-weight: 700; }
+p { margin: 0; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: clamp(56px, 9vw, 104px); }
+.lede { color: var(--muted); font-size: 1.1rem; max-width: 58ch; }
+.section-head { display: grid; gap: 12px; margin-bottom: 36px; }
+.tag { font-family: var(--mono); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.sample { font-family: var(--mono); font-size: .66rem; letter-spacing: .05em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 22px; border-radius: 8px; font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: .02em; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .12s ease, background .12s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-volt { background: var(--volt); color: var(--on-volt); }
+.btn-ink { background: var(--ink); color: var(--bg); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* Header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--surface); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { width: 34px; height: 34px; border-radius: 7px; background: var(--navy); display: grid; place-items: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-word { font-family: var(--display); font-weight: 800; font-size: 1.45rem; letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
+.logo-word small { display: block; font-family: var(--mono); font-weight: 500; font-size: .58rem; letter-spacing: .08em; color: var(--muted); margin-top: 3px; }
+nav.links { display: none; gap: 26px; font-weight: 500; }
+nav.links a { text-decoration: none; color: var(--muted); }
+nav.links a:hover { color: var(--ink); }
+.top .btn { min-height: 42px; font-size: 1.05rem; padding: 0 16px; }
+.top-phone-label { display: none; }
+@media (min-width: 900px) { nav.links { display: flex; } .top-phone-label { display: inline; } }
+
+/* Hero */
+.hero { padding-block: clamp(36px, 7vw, 88px) clamp(48px, 8vw, 96px); }
+.hero .wrap { display: grid; gap: 44px; align-items: center; }
+@media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.1fr .9fr; } }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero h1 { font-size: clamp(3.4rem, 10vw, 6.4rem); font-weight: 800; text-transform: uppercase; line-height: .9; }
+.hero h1 .hl { background: linear-gradient(transparent 62%, var(--volt) 62%, var(--volt) 92%, transparent 92%); padding: 0 .05em; }
+.hero .lede { font-size: 1.2rem; color: var(--ink); opacity: .85; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.trust { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .95rem; color: var(--muted); }
+.trust span { display: inline-flex; align-items: center; gap: 7px; }
+.trust svg { width: 17px; height: 17px; color: var(--ok); }
+.stars { color: var(--volt); letter-spacing: 1px; }
+
+/* Breaker panel */
+.panel { background: var(--metal); border-radius: 14px; padding: 16px; border: 1px solid var(--metal-dark); box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 18px 40px -24px rgba(15,29,46,.55); max-width: 460px; width: 100%; justify-self: center; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-family: var(--mono); font-size: .7rem; font-weight: 700; color: var(--ink); letter-spacing: .05em; text-transform: uppercase; }
+.panel-status { display: inline-flex; align-items: center; gap: 6px; }
+.led { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent); }
+.panel-status.warn .led { background: var(--off); box-shadow: 0 0 0 3px color-mix(in srgb, var(--off) 25%, transparent); }
+.main-breaker { display: flex; align-items: center; justify-content: space-between; background: var(--breaker); color: #e8edf3; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; font-family: var(--mono); font-size: .78rem; font-weight: 700; }
+.main-breaker b { color: var(--volt); font-size: 1.05rem; }
+.circuits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.circuit { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--metal-dark); border-radius: 6px; padding: 6px 8px; cursor: pointer; text-align: left; font: inherit; color: var(--ink); min-width: 0; }
+.circuit .sw { flex: none; width: 30px; height: 18px; border-radius: 4px; background: var(--breaker); position: relative; }
+.circuit .sw::after { content: ""; position: absolute; top: 3px; left: 15px; width: 12px; height: 12px; border-radius: 2px; background: var(--ok); transition: left .15s ease, background .15s ease; }
+.circuit[aria-pressed="false"] .sw::after { left: 3px; background: var(--off); }
+.circuit .lbl { font-family: var(--mono); font-size: .64rem; font-weight: 700; letter-spacing: .03em; line-height: 1.2; text-transform: uppercase; min-width: 0; overflow-wrap: anywhere; }
+.circuit .amp { display: block; color: var(--muted); font-weight: 500; }
+.circuit.star { border-color: var(--volt); border-width: 2px; }
+.panel-note { margin-top: 12px; font-size: .82rem; color: var(--ink); opacity: .8; min-height: 2.6em; }
+
+/* Storm band */
+.storm { background: var(--navy); color: var(--on-navy); padding-block: 22px; }
+.storm .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; }
+.storm-count { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.storm-count b { font-family: var(--display); font-size: 3rem; font-weight: 800; color: var(--volt); line-height: 1; font-variant-numeric: tabular-nums; }
+.storm-count span { font-size: 1.05rem; max-width: 40ch; }
+.storm a { color: var(--volt); font-weight: 600; }
+
+/* Services: panel directory */
+.directory { display: grid; gap: 16px; }
+@media (min-width: 760px) { .directory { grid-template-columns: repeat(3, 1fr); } }
+.svc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.svc-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.svc-circuit { font-family: var(--mono); font-size: .72rem; font-weight: 700; background: var(--breaker); color: #e8edf3; padding: 4px 8px; border-radius: 4px; }
+.svc ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; color: var(--muted); }
+.svc li { padding-left: 20px; position: relative; }
+.svc li::before { content: ""; position: absolute; left: 0; top: .62em; width: 10px; height: 2px; background: var(--volt); }
+.price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--line); }
+.price b { font-family: var(--display); font-size: 1.9rem; font-weight: 700; }
+.price small { color: var(--muted); }
+.also { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.also span { border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 999px; font-size: .92rem; color: var(--muted); }
+
+/* Generator sizes */
+.gen { background: var(--surface); border-block: 1px solid var(--line); }
+.sizes { display: grid; gap: 16px; }
+@media (min-width: 860px) { .sizes { grid-template-columns: repeat(3, 1fr); } }
+.size { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 12px; align-content: start; background: var(--bg); }
+.size.rec { border: 2px solid var(--volt); position: relative; }
+.size.rec::before { content: "Most homes"; position: absolute; top: -13px; left: 22px; background: var(--volt); color: var(--on-volt); font-family: var(--display); font-weight: 700; font-size: .95rem; padding: 2px 10px; border-radius: 4px; }
+.kw { font-family: var(--display); font-weight: 800; font-size: 3.2rem; line-height: 1; }
+.kw small { font-size: 1.2rem; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.size p { color: var(--muted); }
+.runs { display: flex; flex-wrap: wrap; gap: 6px; }
+.runs span { font-family: var(--mono); font-size: .68rem; font-weight: 700; text-transform: uppercase; background: var(--surface); border: 1px solid var(--line); padding: 3px 7px; border-radius: 4px; }
+.gen-foot { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px 28px; color: var(--muted); font-size: .98rem; }
+.gen-foot b { color: var(--ink); }
+
+/* Insurance panels */
+.insure .wrap { display: grid; gap: 36px; }
+@media (min-width: 900px) { .insure .wrap { grid-template-columns: 1fr 1fr; align-items: center; } }
+.bad-panels { display: grid; gap: 10px; }
+.bad { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--off); border-radius: 8px; padding: 14px 16px; }
+.bad b { font-family: var(--display); font-size: 1.35rem; font-weight: 700; }
+.bad span { color: var(--muted); font-size: .92rem; text-align: right; }
+.insure-copy { display: grid; gap: 18px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.checks li { display: flex; gap: 10px; }
+.checks svg { width: 20px; height: 20px; flex: none; margin-top: 3px; color: var(--ok); }
+
+/* Steps */
+.steps { display: grid; gap: 16px; counter-reset: s; }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.step { display: grid; gap: 10px; padding: 26px; border-top: 4px solid var(--ink); background: var(--surface); border-radius: 0 0 var(--radius) var(--radius); }
+.step-n { font-family: var(--display); font-weight: 800; font-size: 1.1rem; color: var(--muted); }
+.step p { color: var(--muted); }
+
+/* Plan */
+.plan { background: var(--navy); color: var(--on-navy); border-radius: 16px; padding: clamp(28px, 5vw, 56px); display: grid; gap: 28px; }
+@media (min-width: 860px) { .plan { grid-template-columns: 1.2fr .8fr; align-items: center; } }
+.plan h2 { color: var(--on-navy); }
+.plan .lede { color: var(--on-navy); opacity: .8; margin-top: 12px; }
+.plan ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 9px; }
+.plan li { display: flex; gap: 10px; }
+.plan li svg { width: 20px; height: 20px; flex: none; margin-top: 3px; color: var(--volt); }
+.plan-box { background: color-mix(in srgb, var(--on-navy) 7%, transparent); border: 1px solid color-mix(in srgb, var(--on-navy) 18%, transparent); border-radius: 12px; padding: 26px; display: grid; gap: 14px; }
+.plan-box .amt { font-family: var(--display); font-weight: 800; font-size: 3.4rem; line-height: 1; }
+.plan-box .amt small { font-size: 1.2rem; font-weight: 600; opacity: .7; }
+.plan .sample { color: var(--on-navy); border-color: var(--on-navy); opacity: .7; }
+
+/* Reviews */
+.reviews { display: grid; gap: 16px; }
+@media (min-width: 760px) { .reviews { grid-template-columns: repeat(3, 1fr); } }
+.review { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 12px; align-content: start; }
+.review footer { color: var(--muted); font-size: .92rem; }
+
+/* Area + quote */
+.contact .wrap { display: grid; gap: 40px; }
+@media (min-width: 900px) { .contact .wrap { grid-template-columns: .9fr 1.1fr; } }
+.cities { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.cities span { background: var(--surface); border: 1px solid var(--line); padding: 7px 12px; border-radius: 6px; font-weight: 500; }
+.direct { margin-top: 28px; display: grid; gap: 6px; }
+.direct .num { font-family: var(--display); font-weight: 800; font-size: 2.4rem; user-select: all; }
+form.quote { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: clamp(22px, 4vw, 34px); display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; font-size: .95rem; }
+.field input, .field select, .field textarea { font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; width: 100%; min-width: 0; }
+.field textarea { min-height: 90px; resize: vertical; }
+.row2 { display: grid; gap: 16px; }
+@media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; } }
+.drop { border: 2px dashed var(--line); border-radius: 10px; padding: 18px; text-align: center; color: var(--muted); cursor: pointer; display: grid; gap: 4px; }
+.drop:hover { border-color: var(--volt); }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.drop b { color: var(--ink); }
+.sent { background: color-mix(in srgb, var(--ok) 14%, var(--surface)); border: 1px solid var(--ok); border-radius: 10px; padding: 18px; font-weight: 500; }
+
+/* Footer */
+footer.site { border-top: 1px solid var(--line); padding-block: 36px; color: var(--muted); font-size: .92rem; }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+
+/* Mobile action bar */
+.actionbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: var(--surface); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.actionbar .btn { min-height: 48px; font-size: 1.05rem; padding: 0 8px; }
+@media (min-width: 900px) { .actionbar { display: none; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Gulfline Electric home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6.2L13.5 2Z" fill="#f5b800"/></svg></span>
+      <span class="logo-word">Gulfline Electric<small>LIC. EC0000000</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#generators">Generators</a>
+      <a href="#panels">Panel replacement</a>
+      <a href="#plan">Storm-Ready Plan</a>
+      <a href="#quote">Service area</a>
+    </nav>
+    <a class="btn btn-volt" href="tel:+18135550142" aria-label="Call (813) 555-0142">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+      <span class="top-phone-label">(813) 555-0142</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="tag">Licensed electricians · Tampa Bay</p>
+        <h1>Power that <span class="hl">stays on.</span></h1>
+        <p class="lede">Standby generators, panel replacements and EV chargers, done right the first time. Send a photo and get a flat quote within 24 hours.</p>
+        <div class="cta-row">
+          <a class="btn btn-volt" href="tel:+18135550142">Call (813) 555-0142</a>
+          <a class="btn btn-ink" href="sms:+18135550142">Text us a photo</a>
+          <a class="btn btn-line" href="#quote">Get a quote</a>
+        </div>
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Licensed &amp; insured</span>
+          <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Authorized Generac dealer</span>
+          <span><span class="stars">★★★★★</span> Google reviews <span class="sample">sample</span></span>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="Interactive breaker panel">
+        <div class="panel-head">
+          <span>Panel A · 200A service</span>
+          <span class="panel-status" id="panelStatus"><span class="led"></span><span id="panelStatusText">All circuits on</span></span>
+        </div>
+        <div class="main-breaker"><span>MAIN</span><b>200A</b><span>240V</span></div>
+        <div class="circuits" id="circuits">
+          <button class="circuit star" type="button" aria-pressed="true" data-note="Generator transfer switch. When the grid drops, your standby generator takes over in about 10 seconds."><span class="sw"></span><span class="lbl">Generator ATS<span class="amp">100A</span></span></button>
+          <button class="circuit star" type="button" aria-pressed="true" data-note="Level 2 EV charger on its own 50A circuit. Charges most cars overnight."><span class="sw"></span><span class="lbl">EV charger<span class="amp">50A</span></span></button>
+          <button class="circuit" type="button" aria-pressed="true" data-note="Central A/C. The circuit you miss most in August, and the first one we size a generator around."><span class="sw"></span><span class="lbl">A/C condenser<span class="amp">40A</span></span></button>
+          <button class="circuit" type="button" aria-pressed="true" data-note="Pool pump. Florida code requires bonding around pools and spas; we check it on every pool job."><span class="sw"></span><span class="lbl">Pool pump<span class="amp">20A</span></span></button>
+          <button class="circuit" type="button" aria-pressed="true" data-note="Kitchen. Fridge and freezer stay cold on any generator size we install."><span class="sw"></span><span class="lbl">Kitchen<span class="amp">20A</span></span></button>
+          <button class="circuit" type="button" aria-pressed="true" data-note="Water heater. Included on whole-home generators."><span class="sw"></span><span class="lbl">Water heater<span class="amp">30A</span></span></button>
+          <button class="circuit star" type="button" aria-pressed="true" data-note="Whole-home surge protector. Cheap insurance against lightning and grid spikes."><span class="sw"></span><span class="lbl">Surge protect<span class="amp">2P</span></span></button>
+          <button class="circuit" type="button" aria-pressed="true" data-note="Lights and outlets. Bedrooms here need AFCI protection under current code."><span class="sw"></span><span class="lbl">Bedrooms<span class="amp">15A</span></span></button>
+        </div>
+        <p class="panel-note" id="panelNote">Tap a breaker. The highlighted ones are what we install most.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="storm">
+    <div class="wrap">
+      <div class="storm-count"><b id="stormDays">—</b><span id="stormText">days until hurricane season</span></div>
+      <a href="#generators">Generator installs book up fast. See sizes →</a>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">Panel directory</p>
+        <h2>Three things we do better than anyone in Tampa Bay.</h2>
+        <p class="lede">We do all residential electrical work, but these are our specialties. Flat prices, written before we start.</p>
+      </div>
+      <div class="directory">
+        <article class="svc">
+          <div class="svc-top"><h3>Standby generators</h3><span class="svc-circuit">CKT 1</span></div>
+          <ul>
+            <li>Sized to your home with a real load calculation</li>
+            <li>Permits, pad, transfer switch and gas tie-in handled</li>
+            <li>Most installs finished in one day</li>
+          </ul>
+          <div class="price"><small>Installed from</small><b>$X,XXX</b><span class="sample">set before launch</span></div>
+        </article>
+        <article class="svc" id="panels-card">
+          <div class="svc-top"><h3>Panel replacement</h3><span class="svc-circuit">CKT 2</span></div>
+          <ul>
+            <li>Old panels insurers won't cover, replaced fast</li>
+            <li>100A to 200A service upgrades</li>
+            <li>Paperwork your insurer and realtor need</li>
+          </ul>
+          <div class="price"><small>From</small><b>$X,XXX</b><span class="sample">set before launch</span></div>
+        </article>
+        <article class="svc">
+          <div class="svc-top"><h3>EV chargers</h3><span class="svc-circuit">CKT 3</span></div>
+          <ul>
+            <li>Level 2 install for Tesla, Ford, Rivian and more</li>
+            <li>Load check so your panel can handle it</li>
+            <li>Usually done in half a day</li>
+          </ul>
+          <div class="price"><small>Installed from</small><b>$XXX</b><span class="sample">set before launch</span></div>
+        </article>
+      </div>
+      <div class="also">
+        <span>Repairs &amp; troubleshooting</span><span>Surge protection</span><span>Ceiling fans &amp; lighting</span><span>Pool &amp; spa wiring</span><span>Outlets &amp; GFCI</span><span>Inspection repairs</span><span>Rewiring</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gen" id="generators">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">Whole-home standby generators</p>
+        <h2>When the grid goes down, you won't notice.</h2>
+        <p class="lede">A standby generator sits outside on a pad and runs on natural gas or propane. When power drops, it starts on its own in seconds. No cords, no gas cans.</p>
+      </div>
+      <div class="sizes">
+        <article class="size">
+          <p class="tag">Essentials</p>
+          <div class="kw">10–14<small>kW</small></div>
+          <p>Keeps the important circuits running in smaller homes.</p>
+          <div class="runs"><span>Fridge</span><span>Lights</span><span>Wi-Fi</span><span>Window A/C</span></div>
+        </article>
+        <article class="size rec">
+          <p class="tag">Whole home</p>
+          <div class="kw">18–22<small>kW</small></div>
+          <p>Runs most 2,000–3,000 sq ft homes, central A/C included.</p>
+          <div class="runs"><span>Central A/C</span><span>Kitchen</span><span>Water heater</span><span>Pool pump</span></div>
+        </article>
+        <article class="size">
+          <p class="tag">Large home</p>
+          <div class="kw">24–26<small>kW</small></div>
+          <p>For larger homes with two A/C systems or all-electric appliances.</p>
+          <div class="runs"><span>2 A/C units</span><span>Electric range</span><span>Everything</span></div>
+        </article>
+      </div>
+      <div class="gen-foot">
+        <span><b>Every install includes</b> load calculation, permits and inspection</span>
+        <span><b>Financing</b> available</span>
+        <span><b>Yearly service</b> with the Storm-Ready Plan</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="insure" id="panels">
+    <div class="wrap">
+      <div class="insure-copy">
+        <p class="tag">Insurance &amp; home sales</p>
+        <h2>Insurer won't cover your panel? We'll fix that this week.</h2>
+        <p class="lede">Many Florida insurers refuse or cancel policies on homes with these panels. Buyers can't close until they're replaced. We move fast and give you the paperwork.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Quote within 24 hours of your inspection report</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Scheduled around your closing date</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Photos, permit and invoice ready for your agent and insurer</li>
+        </ul>
+        <div class="cta-row"><a class="btn btn-ink" href="#quote">Send your inspection report</a></div>
+      </div>
+      <div class="bad-panels" aria-label="Panels insurers commonly flag">
+        <div class="bad"><b>Federal Pacific Stab-Lok</b><span>Breakers may not trip</span></div>
+        <div class="bad"><b>Zinsco / Sylvania</b><span>Bus bars can overheat</span></div>
+        <div class="bad"><b>Challenger</b><span>Some breakers recalled</span></div>
+        <div class="bad"><b>Fuse boxes</b><span>Often uninsurable</span></div>
+        <div class="bad"><b>Split-bus panels</b><span>No single main shutoff</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">How it works</p>
+        <h2>Three steps. No surprises.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step-n">Step 1</span><h3>Send a photo</h3><p>Text or upload a picture of your panel, the spot for your charger, or your inspection report.</p></div>
+        <div class="step"><span class="step-n">Step 2</span><h3>Get a flat price</h3><p>You get a written quote within 24 hours. The price we quote is the price you pay.</p></div>
+        <div class="step"><span class="step-n">Step 3</span><h3>We do the work</h3><p>We pull the permits, show up on time, clean up, and send you before-and-after photos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan" style="padding-top:0">
+    <div class="wrap">
+      <div class="plan">
+        <div>
+          <p class="tag" style="color:inherit;opacity:.7">Membership</p>
+          <h2>The Storm-Ready Plan</h2>
+          <p class="lede">One yearly visit before hurricane season, so your generator and panel are ready when the storm is.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Yearly generator service: oil, filters, battery, load test</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Full electrical safety check of your panel</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Priority scheduling before and after storms</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Member discount on repairs</li>
+          </ul>
+        </div>
+        <div class="plan-box">
+          <div class="amt">$XX<small>/month</small></div>
+          <span class="sample" style="justify-self:start">price set before launch</span>
+          <a class="btn btn-volt" href="#quote">Join the plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">Reviews</p>
+        <h2>What neighbors say</h2>
+        <p><span class="sample">Sample reviews. Replace with real Google reviews</span></p>
+      </div>
+      <div class="reviews">
+        <blockquote class="review" style="margin:0"><span class="stars">★★★★★</span><p>"Texted a photo of our old Zinsco panel on Monday, had a quote that night and a new panel Thursday. Our insurance renewed with no problem."</p><footer>Homeowner, Brandon</footer></blockquote>
+        <blockquote class="review" style="margin:0"><span class="stars">★★★★★</span><p>"Generator went in in one day. They walked us through how it works and it kicked on by itself during the last storm."</p><footer>Homeowner, Riverview</footer></blockquote>
+        <blockquote class="review" style="margin:0"><span class="stars">★★★★★</span><p>"On time, clean, and the price was exactly what they quoted. Our EV charger was done before lunch."</p><footer>Homeowner, Wesley Chapel</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="quote" style="padding-top:0">
+    <div class="wrap">
+      <div>
+        <p class="tag">Service area</p>
+        <h2 style="margin-top:12px">Serving Tampa Bay</h2>
+        <p class="lede" style="margin-top:12px">Hillsborough, Pinellas and Pasco counties.</p>
+        <div class="cities">
+          <span>Tampa</span><span>St. Petersburg</span><span>Clearwater</span><span>Brandon</span><span>Riverview</span><span>Wesley Chapel</span><span>Lutz</span><span>Largo</span><span>Valrico</span><span>Land O' Lakes</span>
+        </div>
+        <div class="direct">
+          <span class="tag">Call or text</span>
+          <span class="num">(813) 555-0142</span>
+          <span style="color:var(--muted)">Mon–Sat, 7am–7pm · Emergencies 24/7</span>
+        </div>
+      </div>
+
+      <form class="quote" id="quoteForm" novalidate>
+        <h3>Get a quote in 24 hours</h3>
+        <div class="row2">
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="q-service">What do you need?</label>
+          <select id="q-service" name="service">
+            <option>Standby generator</option>
+            <option>Panel replacement or upgrade</option>
+            <option>EV charger</option>
+            <option>Inspection report repairs</option>
+            <option>Repair or something else</option>
+          </select>
+        </div>
+        <label class="drop" for="q-photo">
+          <input id="q-photo" name="photo" type="file" accept="image/*,application/pdf" multiple>
+          <b id="photoLabel">Add a photo or inspection report</b>
+          <span>Optional, but it gets you a faster, more accurate quote</span>
+        </label>
+        <div class="field"><label for="q-notes">Anything else? (optional)</label><textarea id="q-notes" name="notes" placeholder="Closing date, address, best time to call"></textarea></div>
+        <button class="btn btn-volt" type="submit">Send my request</button>
+        <div class="sent" id="sentMsg" hidden>Demo only: this form isn't connected yet. On the live site this goes straight to your phone and email.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Gulfline Electric LLC · Florida Certified Electrical Contractor Lic. #EC0000000 · Licensed &amp; insured</span>
+    <span>Concept design · name, number and license are placeholders</span>
+  </div>
+</footer>
+
+<div class="actionbar">
+  <a class="btn btn-volt" href="tel:+18135550142">Call</a>
+  <a class="btn btn-ink" href="sms:+18135550142">Text</a>
+  <a class="btn btn-line" href="#quote">Quote</a>
+</div>
+
+<script>
+(function () {
+  // Breaker panel
+  var circuits = document.querySelectorAll('.circuit');
+  var note = document.getElementById('panelNote');
+  var status = document.getElementById('panelStatus');
+  var statusText = document.getElementById('panelStatusText');
+  circuits.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.getAttribute('aria-pressed') === 'true';
+      c.setAttribute('aria-pressed', on ? 'false' : 'true');
+      note.textContent = on ? 'Tripped. That is a call we get every day. Tap it again to reset.' : c.dataset.note;
+      var offCount = document.querySelectorAll('.circuit[aria-pressed="false"]').length;
+      status.classList.toggle('warn', offCount > 0);
+      statusText.textContent = offCount ? offCount + ' tripped' : 'All circuits on';
+    });
+  });
+
+  // Hurricane season countdown (June 1 – November 30)
+  var now = new Date();
+  var y = now.getFullYear();
+  var day = 864e5;
+  var today = new Date(y, now.getMonth(), now.getDate());
+  var start = new Date(y, 5, 1), end = new Date(y, 10, 30);
+  var daysEl = document.getElementById('stormDays'), textEl = document.getElementById('stormText');
+  if (today >= start && today <= end) {
+    daysEl.textContent = Math.round((end - today) / day);
+    textEl.textContent = 'days left in hurricane season. Install now and beat next year’s rush.';
+  } else {
+    var next = today > end ? new Date(y + 1, 5, 1) : start;
+    daysEl.textContent = Math.round((next - today) / day);
+    textEl.textContent = 'days until hurricane season starts June 1.';
+  }
+
+  // Quote form (demo)
+  var photo = document.getElementById('q-photo');
+  photo.addEventListener('change', function () {
+    var n = photo.files.length;
+    document.getElementById('photoLabel').textContent = n ? n + (n > 1 ? ' files' : ' file') + ' added' : 'Add a photo or inspection report';
+  });
+  document.getElementById('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('sentMsg').hidden = false;
+  });
+})();
+</script>
