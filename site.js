@@ -7,7 +7,13 @@
     c.addEventListener('click', function () {
       var on = c.getAttribute('aria-pressed') === 'true';
       c.setAttribute('aria-pressed', on ? 'false' : 'true');
-      note.textContent = on ? 'Tripped. That is a call we get every day. Tap it again to reset.' : c.dataset.note;
+      note.textContent = on ? 'Tripped. That’s a call we get every day. Flip it back on.' : c.dataset.note + ' ';
+      if (!on && c.dataset.href) {
+        var a = document.createElement('a');
+        a.href = c.dataset.href;
+        a.textContent = 'Learn more →';
+        note.appendChild(a);
+      }
       var offCount = document.querySelectorAll('.circuit[aria-pressed="false"]').length;
       status.classList.toggle('warn', offCount > 0);
       statusText.textContent = offCount ? offCount + ' tripped' : 'All circuits on';
@@ -56,4 +62,15 @@
       document.getElementById('sentMsg').hidden = false;
     });
   }
+})();
+
+// Mobile menu
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
 })();
