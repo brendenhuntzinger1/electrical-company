@@ -4,13 +4,14 @@ Run: python3 build.py
 - Edit page bodies in pages/*.html.
 - Edit the header, footer, phone, license and page list here.
 - Tokens available in page bodies: {PHONE} {TEL} {LICENSE} {CHECK} and {ICON:name}.
-- index.html is written as a fragment (no doctype/head/body) because the
-  preview host wraps it; every other page is a full HTML document.
+- Every page is a full HTML document. A fragment copy of the homepage goes to
+  .preview/index.html for the claude.ai preview (gitignored).
 """
 import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).parent
+PREVIEW = ROOT / ".preview"
 PHONE = "(813) 555-0142"
 TEL = "+18135550142"
 LICENSE = "EC0000000"
@@ -196,10 +197,11 @@ for file, title, description, key, cta_title in PAGES:
     if cta_title:
         shell += CTA.replace("{cta_title}", cta_title)
     shell += FOOTER
-    if file == "index.html":
-        html = head + '<meta name="claude:viewport-fit-sides" content="cover">\n' + shell
-    else:
-        html = ("<!doctype html>\n<html lang=\"en\">\n<head>\n" + HEAD + head + "</head>\n<body>\n"
-                + shell + "</body>\n</html>\n")
+    html = ("<!doctype html>\n<html lang=\"en\">\n<head>\n" + HEAD + head + "</head>\n<body>\n"
+            + shell + "</body>\n</html>\n")
     (ROOT / file).write_text(fill(html))
+    if file == "index.html":
+        # Fragment copy for the claude.ai preview, which wraps the page itself.
+        PREVIEW.mkdir(exist_ok=True)
+        (PREVIEW / "index.html").write_text(fill(head + '<meta name="claude:viewport-fit-sides" content="cover">\n' + shell))
     print("built", file)

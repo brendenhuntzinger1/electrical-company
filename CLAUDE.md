@@ -10,8 +10,8 @@ commercial, generators, EV chargers and the Volt Club membership.
 - Page bodies live in `pages/*.html`. `build.py` wraps them in the shared header,
   footer, icons, phone number and license number. Run `python3 build.py` after any
   change and commit the generated `*.html` files too.
-- `index.html` is generated as a fragment (no doctype/head/body) because the preview
-  host wraps it. Give it a full document before deploying it anywhere else.
+- Hosted on Vercel as a static site (no build step). Pushes to `main` deploy to production.
+- `.preview/index.html` is a fragment copy of the homepage for the claude.ai preview (gitignored).
 - Check every layout change at phone width (390px). Most visitors are on phones.
 
 ## Copy rules
@@ -28,4 +28,4 @@ commercial, generators, EV chargers and the Volt Club membership.
 ## Not done yet
 
 - The estimate form only shows a demo message. It needs to send to the owner's phone and email.
-- No deployment yet (planned: Vercel, domain voltboys.com).
+- Custom domain not connected yet (planned: voltboys.com).
