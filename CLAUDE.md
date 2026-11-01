@@ -19,7 +19,16 @@ commercial, generators, EV chargers and the Volt Club membership.
 - Plain, direct, confident. No invented numbers: no fake years in business, job
   counts, review counts, ratings or prices.
 - Placeholders still to replace before launch: phone number, license number
-  (`EC0000000`), prices (`$X,XXX`), the sample reviews, and the Tampa Bay service area.
+  (`EC0000000`) and the Tampa Bay service area. Club and service prices are not shown
+  until the owner sets them.
+- No reviews on the site until they are real Google reviews. Never publish sample or
+  made-up reviews.
+- Photos in `images/` are free-license stock (Unsplash, Pexels). The people in them are
+  not our crew; never caption them as "our team". Replace with real job photos when
+  available.
+- Claims the owner must confirm before launch: master electrician-led, fully insured
+  (liability + workers' comp), workmanship guarantee, same-day service, 24/7 emergencies.
+  Do not claim dealer status (e.g. Generac) until it is real.
 - Florida contractor ads must show the license number. Keep it in the header and footer.
 - "Led by master electricians" is only allowed if a master electrician actually leads
   the work. Florida's state license is the Certified Electrical Contractor (EC);

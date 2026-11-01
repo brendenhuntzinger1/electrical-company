@@ -1,75 +1,71 @@
-  <section class="hero-dark">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="kicker">Led by master electricians · Tampa Bay</p>
-        <h1>Every wire.<br><span class="hl">Every job.</span></h1>
-        <p class="lede">Service calls, panels, remodels, new construction, commercial and generators. Every job is led by a master electrician, priced in writing, and built to pass inspection the first time.</p>
-        <div class="cta-row">
-          <a class="btn btn-volt" href="tel:{TEL}">Call {PHONE}</a>
-          <a class="btn btn-ghost" href="contact.html">Get a free estimate</a>
-        </div>
-        <div class="trust">
-          <span>{CHECK}Master electrician on every job</span>
-          <span>{CHECK}Licensed &amp; insured · {LICENSE}</span>
-          <span>{CHECK}Permits on every job</span>
-          <span>{CHECK}Written, flat pricing</span>
-        </div>
-      </div>
-
-      <div class="panel" aria-label="Interactive breaker panel">
-        <div class="panel-head">
-          <span>Volt Boys · Panel A</span>
-          <span class="panel-status" id="panelStatus"><span class="led"></span><span id="panelStatusText">All circuits on</span></span>
-        </div>
-        <div class="main-breaker"><span>MAIN</span><b>200A</b><span>240V</span></div>
-        <div class="circuits" id="circuits">
-          <button class="circuit" type="button" aria-pressed="true" data-href="residential.html" data-note="Service calls: dead outlets, tripping breakers, flickering lights. Same-day when we can."><span class="sw"></span><span class="lbl">Service call<span class="amp">20A</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="construction.html" data-note="New construction: temp power, rough-in, trim-out and final, on the builder's schedule."><span class="sw"></span><span class="lbl">Rough-in<span class="amp">NEW</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="panel-replacement.html" data-note="Panel swaps and 200A service upgrades, including panels insurers won't cover."><span class="sw"></span><span class="lbl">Panel swap<span class="amp">200A</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="construction.html" data-note="Trim-out: devices, fixtures, fans and the panel schedule, ready for final inspection."><span class="sw"></span><span class="lbl">Trim-out<span class="amp">NEW</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="generators.html" data-note="Standby generators with automatic transfer switches. Power back in seconds."><span class="sw"></span><span class="lbl">Generator<span class="amp">100A</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="commercial.html" data-note="Commercial build-outs, service and lighting retrofits for Tampa Bay businesses."><span class="sw"></span><span class="lbl">Commercial<span class="amp">3PH</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="ev-chargers.html" data-note="Level 2 EV chargers on their own circuit, with a panel load check first."><span class="sw"></span><span class="lbl">EV charger<span class="amp">50A</span></span></button>
-          <button class="circuit" type="button" aria-pressed="true" data-href="residential.html#lighting" data-note="Recessed lights, fans, landscape lighting and fixture swaps."><span class="sw"></span><span class="lbl">Lighting<span class="amp">15A</span></span></button>
-        </div>
-        <p class="panel-note" id="panelNote">Flip a breaker to see what we do.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="paths">
+  <section class="hero" style="--img:url('images/home-dusk.jpg')">
     <div class="wrap">
-      <div class="path-grid">
-        <a class="path" href="residential.html">
-          {ICON:home}
-          <span class="path-who">Homeowners</span>
-          <span class="path-what">Repairs, panels, lighting, generators, EV chargers</span>
-          <span class="path-go">Home services →</span>
+      <div class="hero-copy">
+        <p class="tag" style="color:#e9a073">Licensed electricians · Tampa Bay</p>
+        <h1>Electrical work, done <em>right</em> the first time.</h1>
+        <p class="lede">Service calls, panels, remodels, new construction, commercial and generators. Every job is led by a master electrician, priced in writing, and built to pass inspection.</p>
+        <div class="cta-row">
+          <a class="btn btn-volt" href="contact.html">Get a free estimate</a>
+          <a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a>
+        </div>
+        <div class="hero-proof">
+          <span>{CHECK}Master electrician-led</span>
+          <span>{CHECK}Same-day service calls</span>
+          <span>{CHECK}Homes, builders &amp; businesses</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trustbar" aria-label="Why customers trust us">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item">{ICON:badge}<b>Florida licensed</b><span>Certified Electrical Contractor {LICENSE}. <a href="https://www.myfloridalicense.com/wl11.asp" rel="noopener">Verify</a></span></div>
+        <div class="trust-item">{ICON:shield}<b>Fully insured</b><span>Liability and workers' comp on every job</span></div>
+        <div class="trust-item">{ICON:doc}<b>Permitted &amp; inspected</b><span>We pull the permit and meet the inspector</span></div>
+        <div class="trust-item">{ICON:check}<b>Workmanship guarantee</b><span>If our work fails, we come back and make it right</span></div>
+        <div class="trust-item">{ICON:clock}<b>Price in writing first</b><span>A flat price before we start. No surprise bills</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">Who we work for</p>
+        <h2>One electrical contractor for every kind of job.</h2>
+      </div>
+      <div class="paths-grid">
+        <a class="path-card" href="residential.html">
+          <img src="images/living-room.jpg" alt="Bright modern living room with recessed lighting" loading="lazy">
+          <span class="who">Homeowners</span>
+          <span class="what">Repairs, panel upgrades, lighting, generators and EV chargers.</span>
+          <span class="go">Home services</span>
         </a>
-        <a class="path" href="construction.html">
-          {ICON:hardhat}
-          <span class="path-who">Builders &amp; GCs</span>
-          <span class="path-what">New homes, additions and remodels, rough-in to trim-out</span>
-          <span class="path-go">Send plans for a bid →</span>
+        <a class="path-card" href="construction.html">
+          <img src="images/blueprints.jpg" alt="Builder reviewing construction plans" loading="lazy">
+          <span class="who">Builders &amp; GCs</span>
+          <span class="what">New homes, additions and remodels, from rough-in to trim-out.</span>
+          <span class="go">Send plans for a bid</span>
         </a>
-        <a class="path" href="commercial.html">
-          {ICON:building}
-          <span class="path-who">Businesses</span>
-          <span class="path-what">Build-outs, service, lighting retrofits, backup power</span>
-          <span class="path-go">Commercial work →</span>
+        <a class="path-card" href="commercial.html">
+          <img src="images/office.jpg" alt="Modern office interior with overhead lighting" loading="lazy">
+          <span class="who">Businesses</span>
+          <span class="what">Tenant build-outs, service, lighting retrofits and backup power.</span>
+          <span class="go">Commercial work</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section class="tint" id="services">
     <div class="wrap">
       <div class="section-head split">
         <div>
-          <p class="tag">What we do</p>
+          <p class="tag">Services</p>
           <h2>If it runs on electricity, we handle it.</h2>
         </div>
-        <p class="lede">Residential, new construction and commercial. Everything licensed, permitted and inspected.</p>
+        <p class="lede">Residential, new construction and commercial. Licensed, permitted and inspected, start to finish.</p>
       </div>
       <div class="svc-grid">
         <a class="tile" href="residential.html">{ICON:wrench}<b>Service &amp; repair</b><span>Troubleshooting, tripping breakers, dead outlets</span></a>
@@ -78,12 +74,35 @@
         <a class="tile" href="construction.html#remodels">{ICON:ruler}<b>Remodels &amp; additions</b><span>Kitchens, baths, garages, room additions</span></a>
         <a class="tile" href="commercial.html">{ICON:building}<b>Commercial</b><span>Tenant build-outs, service, maintenance</span></a>
         <a class="tile" href="generators.html">{ICON:generator}<b>Generators</b><span>Whole-home standby, transfer switches</span></a>
-        <a class="tile" href="ev-chargers.html">{ICON:car}<b>EV chargers</b><span>Level 2 install with load check</span></a>
+        <a class="tile" href="ev-chargers.html">{ICON:car}<b>EV chargers</b><span>Level 2 installs with a panel load check</span></a>
         <a class="tile" href="residential.html#lighting">{ICON:bulb}<b>Lighting &amp; fans</b><span>Recessed, landscape, ceiling fans</span></a>
-        <a class="tile" href="residential.html#rewiring">{ICON:wire}<b>Rewiring</b><span>Older homes, aluminum wiring, add circuits</span></a>
+        <a class="tile" href="residential.html#rewiring">{ICON:wire}<b>Rewiring</b><span>Older homes, aluminum wiring, new circuits</span></a>
         <a class="tile" href="residential.html#surge">{ICON:shield}<b>Surge protection</b><span>Whole-home protection from lightning</span></a>
-        <a class="tile" href="residential.html#pools">{ICON:wave}<b>Pool &amp; spa</b><span>Equipment wiring, bonding, lighting</span></a>
+        <a class="tile" href="residential.html#pools">{ICON:wave}<b>Pool &amp; spa</b><span>Equipment circuits, bonding, lighting</span></a>
         <a class="tile" href="residential.html">{ICON:plug}<b>Outlets &amp; switches</b><span>GFCI, USB, dedicated circuits</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap feature">
+      <div class="feature-media">
+        <img src="images/electrician.jpg" alt="Electrician working on an electrical box" loading="lazy">
+        <div class="badge">{ICON:badge}<div><b>Master electrician on every job</b><span>Leading the work and signing off on it</span></div></div>
+      </div>
+      <div class="feature-copy">
+        <p class="tag">Our standard</p>
+        <h2>What every Volt Boys job includes.</h2>
+        <p class="lede">Big panel upgrade or one dead outlet, you get the same process. No shortcuts, no surprises.</p>
+        <ul class="checks">
+          <li>{CHECK}<span><b>A written, flat price</b> before any work starts</span></li>
+          <li>{CHECK}<span><b>A text when we're on the way</b>, and we show up when we say</span></li>
+          <li>{CHECK}<span><b>Permits pulled</b> and inspections passed when the job needs one</span></li>
+          <li>{CHECK}<span><b>Shoe covers and drop cloths</b> in your home, and we haul off the mess</span></li>
+          <li>{CHECK}<span><b>Before-and-after photos</b> of the work, for you or your insurer</span></li>
+          <li>{CHECK}<span><b>Our workmanship guarantee</b> on everything we install</span></li>
+        </ul>
+        <div class="cta-row"><a class="btn btn-volt" href="contact.html">Get a free estimate</a></div>
       </div>
     </div>
   </section>
@@ -93,13 +112,15 @@
       <div class="section-head">
         <p class="tag">For builders &amp; GCs</p>
         <h2>Rough-in to trim-out, on your schedule.</h2>
-        <p class="lede">We show up when the schedule says, keep you posted with photos, and pass inspection so the drywall crew isn't waiting on us.</p>
+        <p class="lede">We show up when the schedule says, send photo updates, and pass inspection so the drywall crew isn't waiting on us.</p>
+        <div class="band-media"><img src="images/site-aerial.jpg" alt="Aerial view of a construction site" loading="lazy"></div>
         <div class="cta-row"><a class="btn btn-volt" href="construction.html">Send plans for a bid</a></div>
       </div>
       <ol class="phases">
+        <li><span class="ph-name">Bid &amp; takeoff</span><span class="ph-what">From your plans, broken out by phase</span></li>
         <li><span class="ph-name">Temp power</span><span class="ph-what">Temporary service so the other trades can work</span></li>
         <li><span class="ph-name">Rough-in</span><span class="ph-what">Boxes, wire runs, panel set, low-voltage pathways</span></li>
-        <li><span class="ph-name">Rough inspection</span><span class="ph-what">We meet the inspector and fix anything same day</span></li>
+        <li><span class="ph-name">Rough inspection</span><span class="ph-what">We meet the inspector and fix anything the same day</span></li>
         <li><span class="ph-name">Trim-out</span><span class="ph-what">Devices, fixtures, fans, panel schedule labeled</span></li>
         <li><span class="ph-name">Final &amp; power-up</span><span class="ph-what">Final inspection, utility release, everything tested</span></li>
       </ol>
@@ -109,32 +130,40 @@
   <section>
     <div class="wrap">
       <div class="section-head">
-        <p class="tag">The Volt Boys way</p>
-        <h2>What you can count on, every job.</h2>
+        <p class="tag">Specialties</p>
+        <h2>Power that stays on, and a car that's charged.</h2>
       </div>
-      <div class="promises">
-        <div class="promise">{ICON:phone}<h3>We answer</h3><p>Call or text and a real person gets back to you fast. No call centers.</p></div>
-        <div class="promise">{ICON:doc}<h3>Price in writing</h3><p>A flat, written price before we start. No surprise hourly bills.</p></div>
-        <div class="promise">{ICON:clock}<h3>On time</h3><p>We show up when we say, and text you when we're on the way.</p></div>
-        <div class="promise">{ICON:badge}<h3>Master-led</h3><p>A master electrician leads every job and signs off on the work. Permits pulled, inspections passed.</p></div>
-        <div class="promise">{ICON:broom}<h3>Clean site</h3><p>Shoe covers in homes, debris hauled off, nothing left behind.</p></div>
-        <div class="promise">{ICON:camera}<h3>Photos of the work</h3><p>Before-and-after photos of every job, for you or your file.</p></div>
+      <div class="duo">
+        <a class="duo-card" href="generators.html">
+          <div class="img"><img src="images/home-dusk.jpg" alt="Modern home with lights on at dusk" loading="lazy"></div>
+          <div class="body">
+            <h3>Whole-home generators</h3>
+            <p>Standby generators that start on their own seconds after the power drops. Sized to your home, permitted, and serviced every year.</p>
+            <span class="count"><b id="stormDays">—</b><span id="stormText">days until hurricane season</span></span>
+            <span class="go">Sizes and process →</span>
+          </div>
+        </a>
+        <a class="duo-card" href="ev-chargers.html">
+          <div class="img"><img src="images/ev-charging.jpg" alt="Electric car plugged into a charger" loading="lazy"></div>
+          <div class="body">
+            <h3>EV chargers</h3>
+            <p>Level 2 chargers on their own circuit, any brand. We check your panel's load first, so charging never trips your A/C.</p>
+            <span class="go">EV charger installs →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="gen-feature">
-    <div class="wrap two-col">
-      <div class="section-head">
-        <p class="tag">Generators</p>
-        <h2>When the grid goes down, you won't notice.</h2>
-        <p class="lede">Whole-home standby generators that start on their own in seconds. Sized to your home, permitted, and serviced every year.</p>
-        <div class="cta-row"><a class="btn btn-ink" href="generators.html">Generator sizes &amp; process</a></div>
-      </div>
-      <div class="storm-card">
-        <b id="stormDays">—</b>
-        <span id="stormText">days until hurricane season</span>
-        <a href="contact.html">Book a free in-home consultation →</a>
+  <section class="tint">
+    <div class="wrap">
+      <div class="guarantee">
+        <div class="seal">{ICON:check}Volt Boys guarantee</div>
+        <div>
+          <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem)">If it isn't right, we come back.</h2>
+          <p>Everything we install is covered by our workmanship guarantee. If something we did isn't working the way it should, call us and we'll come back and fix it. And you never pay more than the written price you approved.</p>
+        </div>
+        <a class="btn btn-ink" href="contact.html">Talk to us</a>
       </div>
     </div>
   </section>
@@ -143,11 +172,11 @@
     <div class="wrap">
       <div class="plan">
         <div>
-          <p class="tag on-dark">Membership</p>
+          <p class="tag">Membership</p>
           <h2>Join the Volt Club.</h2>
           <p class="lede">A yearly safety check, generator service, priority scheduling and member pricing on every job.</p>
           <ul>
-            <li>{CHECK}Yearly electrical safety check</li>
+            <li>{CHECK}Yearly electrical safety inspection</li>
             <li>{CHECK}Generator service and remote monitoring</li>
             <li>{CHECK}Priority scheduling, before and after storms</li>
             <li>{CHECK}Member pricing on repairs and new work</li>
@@ -157,7 +186,7 @@
           <div class="club-card" aria-hidden="true">
             <div class="cc-top"><span class="cc-brand">VOLT BOYS</span><span class="cc-chip"></span></div>
             <div class="cc-mid">CLUB MEMBER</div>
-            <div class="cc-bot"><span>Safety · Service · Priority</span><span>EST. 2026</span></div>
+            <div class="cc-bot"><span>Safety · Service · Priority</span><span>Est. 2026</span></div>
           </div>
           <a class="btn btn-volt" href="club.html">See membership</a>
         </div>
@@ -165,43 +194,32 @@
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <p class="tag">Reviews</p>
-        <h2>What neighbors say</h2>
-        <p><span class="sample">Sample reviews. Replace with real Google reviews</span></p>
-      </div>
-      <div class="reviews">
-        <blockquote class="review"><span class="stars">★★★★★</span><p>"Texted a photo of our old Zinsco panel Monday, had a written price that night and a new panel Thursday."</p><footer>Homeowner, Brandon</footer></blockquote>
-        <blockquote class="review"><span class="stars">★★★★★</span><p>"They roughed in our addition on schedule and passed first inspection. The drywall guys never waited on them."</p><footer>General contractor, Tampa</footer></blockquote>
-        <blockquote class="review"><span class="stars">★★★★★</span><p>"On time, clean, and the price was exactly what they quoted. Our EV charger was done before lunch."</p><footer>Homeowner, Wesley Chapel</footer></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="area-band">
+  <section class="tint">
     <div class="wrap two-col">
       <div class="section-head">
-        <p class="tag">Service area</p>
-        <h2>Serving all of Tampa Bay.</h2>
-        <p class="lede">Hillsborough, Pinellas and Pasco counties. Don't see your town? Call anyway.</p>
+        <p class="tag">Questions</p>
+        <h2>Good to know.</h2>
+        <p class="lede">Something else on your mind? Call or text and a real person answers.</p>
       </div>
-      <div class="cities">
-        <span>Tampa</span><span>St. Petersburg</span><span>Clearwater</span><span>Brandon</span><span>Riverview</span><span>Wesley Chapel</span><span>Lutz</span><span>Largo</span><span>Valrico</span><span>Land O' Lakes</span><span>Apollo Beach</span><span>Odessa</span>
+      <div class="faq">
+        <details><summary>Are you licensed and insured?</summary><p>Yes. We're a Florida Certified Electrical Contractor (license {LICENSE}) with liability and workers' compensation insurance. You can verify our license on the Florida DBPR website.</p></details>
+        <details><summary>Do you charge for estimates?</summary><p>Estimates for planned work are free. Troubleshooting a problem has a flat diagnostic fee that we tell you before we come out.</p></details>
+        <details><summary>Do you pull permits?</summary><p>Yes, on every job that needs one. It protects you when you sell your home or file an insurance claim.</p></details>
+        <details><summary>Is it an emergency?</summary><p>Call right away if you smell burning, see sparks or scorch marks, have a warm or buzzing panel, or lose power to part of the house. If it's safe to do so, switch off the main breaker.</p></details>
+        <details><summary>What areas do you serve?</summary><p>Hillsborough, Pinellas and Pasco counties, including Tampa, St. Petersburg, Clearwater, Brandon, Riverview, Wesley Chapel and Lutz. Outside that? Call anyway.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="cta-band">
+  <section class="cta-band" style="--img:url('images/pool-home.jpg')">
     <div class="wrap">
       <div>
-        <h2>Need an electrician? Let's go.</h2>
-        <p class="lede">Call, text a photo, or send the details. You get a written price, fast.</p>
+        <h2>Need an electrician? Let's talk.</h2>
+        <p class="lede">Call, text a photo, or send the details. You get a written price before any work starts.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-ink" href="tel:{TEL}">Call {PHONE}</a>
-        <a class="btn btn-line" href="contact.html">Get a free estimate</a>
+        <a class="btn btn-volt" href="contact.html">Get a free estimate</a>
+        <a class="btn btn-line" href="tel:{TEL}">Call {PHONE}</a>
       </div>
     </div>
   </section>

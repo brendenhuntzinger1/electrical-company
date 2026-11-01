@@ -15,13 +15,16 @@ PREVIEW = ROOT / ".preview"
 PHONE = "(813) 555-0142"
 TEL = "+18135550142"
 LICENSE = "EC0000000"
-FONTS = "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"
+FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
 
 CHECK = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>'
 
 # Simple stroke icons, 24x24.
 _I = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{}</svg>'
 ICONS = {
+    "star": '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+    "check": '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+    "map": '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
     "bolt": '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/>',
     "home": '<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
     "hardhat": '<path d="M3 17h18"/><path d="M5 17a7 7 0 0 1 14 0"/><path d="M10 10V6h4v4"/><path d="M4 17v2h16v-2"/>',
@@ -59,11 +62,11 @@ NAV = [
 
 LOGO = """<a class="logo" href="index.html" aria-label="Volt Boys Electric home">
       <span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6.2L13.5 2Z" fill="currentColor"/></svg></span>
-      <span class="logo-word">Volt Boys<small>ELECTRIC · LIC. {LICENSE}</small></span>
+      <span class="logo-word">Volt Boys<small>Electric · Lic. {LICENSE}</small></span>
     </a>"""
 
 HEADER = """<a class="skip" href="#main">Skip to content</a>
-<div class="announce"><div class="wrap"><span><b>Led by master electricians</b> · Free estimates</span><span>Same-day service calls</span><span>24/7 emergencies</span></div></div>
+<div class="announce"><div class="wrap"><span><b>Licensed Florida electrical contractor</b> · {LICENSE}</span><span>Free written estimates</span><span>Serving Hillsborough, Pinellas &amp; Pasco</span></div></div>
 <header class="top">
   <div class="wrap">
     """ + LOGO + """
@@ -113,27 +116,27 @@ FOOTER = """</main>
   </div>
   <div class="wrap foot-legal">
     <span>© 2026 Volt Boys Electric LLC · Florida Certified Electrical Contractor Lic. #{LICENSE} · Licensed &amp; insured</span>
-    <span>Concept · phone, license and prices are placeholders</span>
+    <span><a href="https://www.myfloridalicense.com/wl11.asp" rel="noopener">Verify our license with Florida DBPR</a></span>
   </div>
 </footer>
 <div class="actionbar">
-  <a class="btn btn-volt" href="tel:{TEL}">Call</a>
-  <a class="btn btn-ink" href="sms:{TEL}">Text</a>
-  <a class="btn btn-line" href="contact.html">Estimate</a>
+  <a class="btn btn-ink" href="tel:{TEL}">Call</a>
+  <a class="btn btn-line" href="sms:{TEL}">Text</a>
+  <a class="btn btn-volt" href="contact.html">Free estimate</a>
 </div>
 <script src="site.js"></script>
 """
 
 CTA = """
-  <section class="cta-band">
+  <section class="cta-band" style="--img:url('images/home-dusk.jpg')">
     <div class="wrap">
       <div>
         <h2>{cta_title}</h2>
-        <p class="lede">Call, text a photo, or send the details. You get a written price, fast.</p>
+        <p class="lede">Call, text a photo, or send the details. You get a written price before any work starts.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-ink" href="tel:{TEL}">Call {PHONE}</a>
-        <a class="btn btn-line" href="contact.html">Get a free estimate</a>
+        <a class="btn btn-volt" href="contact.html">Get a free estimate</a>
+        <a class="btn btn-line" href="tel:{TEL}">Call {PHONE}</a>
       </div>
     </div>
   </section>
