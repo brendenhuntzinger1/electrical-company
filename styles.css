@@ -246,3 +246,34 @@ nav.links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 .cta-band .btn-volt { background: var(--on-volt); color: var(--volt); }
 .cta-band .btn-line { border-color: var(--on-volt); color: var(--on-volt); }
 .page-hero.contact .wrap > * + * { margin-top: 0; }
+
+/* Amp Club brand additions */
+.announce { background: var(--ink); color: var(--bg); font-size: .86rem; }
+.announce .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; padding-block: 8px; text-align: center; }
+.announce span + span::before { content: "·"; margin-right: 22px; opacity: .5; }
+.announce b { color: var(--volt); font-weight: 600; }
+@media (max-width: 560px) { .announce span:nth-child(n+2) { display: none; } }
+
+.club-card { aspect-ratio: 1.586; width: 100%; max-width: 340px; border-radius: 16px; padding: 22px 24px; background: #0b1726; color: #eef2f7; display: grid; grid-template-rows: auto 1fr auto; border: 1px solid #22344a; box-shadow: 0 24px 48px -28px rgba(0,0,0,.6); }
+.club-card-lg { max-width: 420px; justify-self: center; }
+.cc-top { display: flex; justify-content: space-between; align-items: center; }
+.cc-brand { font-family: var(--display); font-weight: 800; font-size: 1.6rem; letter-spacing: .04em; color: #f5b800; }
+.cc-chip { width: 40px; height: 30px; border-radius: 6px; background: #c9a227; background-image: linear-gradient(90deg, transparent 45%, rgba(0,0,0,.25) 45% 55%, transparent 55%), linear-gradient(0deg, transparent 45%, rgba(0,0,0,.25) 45% 55%, transparent 55%); }
+.cc-mid { align-self: center; font-family: var(--mono); font-size: 1.1rem; font-weight: 700; letter-spacing: .3em; }
+.cc-bot { display: flex; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; opacity: .7; }
+
+.plan-side { display: grid; gap: 16px; justify-items: start; }
+.plan-price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.plan-price .amt { font-family: var(--display); font-weight: 800; font-size: 2.6rem; line-height: 1; }
+.plan-price .amt small { font-size: 1.1rem; font-weight: 600; opacity: .7; }
+.plan .club-card { border-color: color-mix(in srgb, var(--on-navy) 20%, transparent); }
+
+.club-hero-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .club-hero-grid { grid-template-columns: 1.1fr .9fr; } }
+.club-hero-copy > * + * { margin-top: 20px; }
+.page-hero .club-hero-grid > * + * { margin-top: 0; }
+.perks { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+@media (min-width: 700px) { .perks { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .perks { grid-template-columns: repeat(3, 1fr); } }
+.perk { background: var(--surface); padding: 26px; display: grid; gap: 8px; align-content: start; }
+.perk p { color: var(--muted); }

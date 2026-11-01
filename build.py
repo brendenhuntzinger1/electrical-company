@@ -25,17 +25,18 @@ HEAD = """<!doctype html>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="announce"><div class="wrap"><span><b>Hurricane season starts June 1</b> · Free consultations</span><span>In-home, no pressure</span><span>Financing available</span></div></div>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Seawall Electric home">
+    <a class="logo" href="index.html" aria-label="Amp Club Electric home">
       <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6.2L13.5 2Z" fill="#f5b800"/></svg></span>
-      <span class="logo-word">Seawall Electric<small>LIC. {license}</small></span>
+      <span class="logo-word">Amp Club<small>ELECTRIC · LIC. {license}</small></span>
     </a>
     <nav class="links" aria-label="Main">
       <a href="generators.html"{cur_generators}>Generators</a>
       <a href="panel-replacement.html"{cur_panels}>Panel replacement</a>
       <a href="ev-chargers.html"{cur_ev}>EV chargers</a>
-      <a href="index.html#plan">Storm-Ready Plan</a>
+      <a href="club.html"{cur_club}>The Club</a>
       <a href="contact.html"{cur_contact}>Contact</a>
     </nav>
     <a class="btn btn-volt" href="tel:{tel}" aria-label="Call {phone}">
@@ -65,7 +66,7 @@ CTA = """
 FOOT = """</main>
 <footer class="site">
   <div class="wrap">
-    <span>© 2026 Seawall Electric LLC · Florida Certified Electrical Contractor Lic. #{license} · Licensed &amp; insured</span>
+    <span>© 2026 Amp Club Electric LLC · Florida Certified Electrical Contractor Lic. #{license} · Licensed &amp; insured</span>
     <span>Concept · phone, license and prices are placeholders</span>
   </div>
 </footer>
@@ -81,23 +82,26 @@ FOOT = """</main>
 
 PAGES = [
     # file, title, description, nav key, CTA title, CTA service (or None for no CTA band)
-    ("generators.html", "Standby Generators | Seawall Electric",
+    ("generators.html", "Standby Generators | Amp Club Electric",
      "Whole-home standby generator installation in Tampa Bay. Sizing, permits, gas tie-in and yearly service.",
      "generators", "Get ready before June 1.", "Standby generator"),
-    ("panel-replacement.html", "Panel Replacement | Seawall Electric",
+    ("panel-replacement.html", "Panel Replacement | Amp Club Electric",
      "Federal Pacific, Zinsco and fuse panel replacement for Florida insurance and home sales. Quotes in 24 hours.",
      "panels", "Closing soon? Send us the report.", "Panel replacement or upgrade"),
-    ("ev-chargers.html", "EV Charger Installation | Seawall Electric",
+    ("ev-chargers.html", "EV Charger Installation | Amp Club Electric",
      "Level 2 EV charger installation in Tampa Bay, with a panel load check on every job.",
      "ev", "Charge at home tonight, not next month.", "EV charger"),
-    ("contact.html", "Contact | Seawall Electric",
+    ("club.html", "The Club | Amp Club Electric",
+     "Amp Club membership: yearly generator service, panel safety check, remote monitoring and priority before storms.",
+     "club", "Be first in line when the next storm comes.", "Join the Club"),
+    ("contact.html", "Contact | Amp Club Electric",
      "Call, text or send a photo for a flat quote within 24 hours. Serving Hillsborough, Pinellas and Pasco counties.",
      "contact", None, None),
 ]
 
 for file, title, description, key, cta_title, cta_service in PAGES:
     cur = {f"cur_{k}": (' aria-current="page"' if k == key else "")
-           for k in ("generators", "panels", "ev", "contact")}
+           for k in ("generators", "panels", "ev", "club", "contact")}
     body = (ROOT / "pages" / file).read_text().replace("{CHECK}", CHECK).replace("{PHONE}", PHONE).replace("{TEL}", TEL)
     html = HEAD.format(title=title, description=description, license=LICENSE, tel=TEL, phone=PHONE, **cur)
     html += body
